@@ -57,6 +57,8 @@ namespace wotServer
                 p1.entities.Remove(e);
         }
 
+        
+
         static public List<Tuple<entity, string, string>> get_look(place p1)
         {
             List<Tuple<entity, string, string>> outp = new List<Tuple<entity, string, string>>();

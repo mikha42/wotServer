@@ -6,8 +6,24 @@ using System.Threading.Tasks;
 
 namespace wotServer
 {
+    class adminpower : module
+    {
+        public adminpower(entity self, string name) : base(self, name) { }
+
+        public void p_agrab(object nth)
+        {
+            entity e = new entity(self);
+            e.name = "powertool";
+            //e.addModule(typeof(furniture));
+            ((player)self.module("player")).rh = e;
+        }
+
+    }
+
     static class admin
     {
+
+
         public static void debuging()
         {
             return;
@@ -88,6 +104,8 @@ namespace wotServer
             admin.username = username;
             auth.createUser(username, password, admin);
             e.addModule(typeof(player));
+            if (username == "admin")
+                e.addModule(typeof(adminpower));
         }
     }
 }

@@ -117,6 +117,23 @@ namespace wotServer
             return outp.ToArray();
         }
 
+        public string get_name()
+        {
+            object[] names = invoke("get_name");
+            string name = this.name;
+            if (names.Length > 0)
+                name = (string)names[0];
+            return name;
+        }
+        public string get_desc()
+        {
+            object[] descs = invoke("get_desc");
+            string desc = "";
+            if (descs.Length > 0)
+                desc = (string)descs[0];
+            return desc;
+        }
+
 
     }
 }

@@ -104,7 +104,7 @@ namespace wotServer
                         if (lookSubject == null)
                             ui.print(u.player.position.name + ":\n" + u.player.position.desc + "{}", u);
                         else
-                            ui.print(cstr.trac(u.player.position.name) + " " + lookS_name + ":{}" + lookS_desc, u);
+                            ui.print(cstr.trac(u.player.position.name) + " " + lookS_name + "{15}:{}" + lookS_desc + "{}", u);
                         if (look.Count() > 0)
                         {
                             string entitieslook = "";
@@ -125,12 +125,12 @@ namespace wotServer
                     place p = u.player.position;
                     foreach (entity e in p.entities)
                         if (e != u.player)
-                            e.invoke("listen", cstr.trac(u.player.name) + "{15e} " + r + "{}");
+                            e.invoke("listen", cstr.trac(u.player.name) + "{15} " + r + "{}");
                 }
                 else
                 {
                     if (u.player.can("p_" + f))
-                        u.player.invoke(f, r);
+                        u.player.invoke("p_" + f, r);
                     else
                     {
                         string helptext = "go{}look{}say{}";
